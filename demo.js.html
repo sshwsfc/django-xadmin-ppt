@@ -1,0 +1,132 @@
+
+<!doctype html>
+
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Speeding Up Drupal</title>
+
+    <meta name="description" content="Tools and Tips for increasing website speed for front-end (Drupal) developers." />
+    <meta name="author" content="Evan Willhite" />
+
+    <link href="xadmin.js.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="impress-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div id="impress">
+
+    <div id="speed" class="step big hidden" data-x="280" data-y="2100" data-scale="6" data-z="-300000" data-transition-duration="100">
+        <p>Speeding Up</p>
+        <div class="drupal">Drupal</div>
+        <div class="obligatory">
+            <p class="left">Drupal Camp Atlanta 2012</p>
+            <p class="right">#DcATL</p>
+        </div>
+    </div>
+
+    <div class="biz-card step slide hidden" data-x="280" data-y="2100" data-scale="7" data-z="-300000" data-transition-duration="100">
+        <q>Evan Willhite</q>
+        <p>Senior Developer at <a href="http://centresource.com">Centresource</a></p>
+        <p>Nashville, TN</p>
+        <p class="left"><a class="lower" href="http://twitter.com/evanmwillhite">@evanmwillhite</a></p>
+        <img class="right map" src="img/map.png" />
+    </div>
+
+<!--     <div id="speed" class="step big hidden" data-x="280" data-y="2100" data-scale="6" data-z="-300000">
+        <p>Speeding Up<div class="drupal">Drupal</div></p>
+    </div> -->
+
+    <div id="basics" class="step" data-x="280" data-y="2100" data-scale="4">
+        <p class="big">The Basics</p>
+        <div class="small">(The Stuff We Can't Control)</div>
+    </div>
+
+    <div id="content" class="step hidden" data-x="1080" data-y="2100" data-scale="1">
+        <p class="huge">Content</p>
+        <p class="elephant">(The Elephant in the Room)</p>
+    </div>
+
+    <div id="the-stack" class="step hidden" data-x="680" data-y="2500" data-scale="1">
+        <p>The Stack</p>
+    </div>
+
+    <div id="the-functionality" class="step" data-x="680" data-y="4500" data-scale="1">
+        <p>The Functionality</p>
+    </div>
+
+    <div id="control" class="step" data-x="4500" data-y="-850" data-rotate="270" data-scale="6">
+        <p class="huge">So What</p>
+        <p class="big">Can We Control?</p>
+    </div>
+
+    <div id="the-theme" class="step" data-x="4500" data-y="-7850" data-rotate="270" data-scale="6">
+        <p>The Theme</p>
+    </div>
+
+    <div id="but-how" class="obvious step" data-x="9000" data-y="-7850" data-rotate="270" data-scale="6">
+        <p class="huge">But How?</p>
+        <p>Less code</p>
+        <p>Less files</p>
+        <p>Smarter asset loading</p>
+    </div>
+
+    <div id="less-code" class="obvious step" data-x="9000" data-y="-13850" data-rotate="270" data-scale="6">
+        <p class="huge">Less code</p>
+        <p>No Base theme?</p>
+        <p>Stark, <a href="http://drupal.org/project/mothership">Mothership</a></p>
+        <p>Image compression</p>
+        <p>Clean code, <span class="big">CLEAN UP</span>.</p>
+    </div>
+
+    <div id="less-files" class="obvious step" data-x="9000" data-y="-19850" data-rotate="270" data-scale="6">
+        <p class="huge">Less files</p>
+        <p>No Base theme?!</p>
+        <p>Sprites</p>
+        <p>Aggregation</p>
+        <p>Minification (<a href="http://drupal.org/project/speedy">Speedy</a>)</p>
+    </div>
+
+    <div id="smarter-loading" class="obvious step" data-x="9000" data-y="-25850" data-rotate="270" data-scale="6">
+        <p class="huge">Smarter Loading</p>
+        <p>Beware the .info file</p>
+        <p>Use <a href="http://evanwillhite.com/blog/css-and-javascript-theming-functions">template functions</a></p>
+        <p>If javascript, <a href="http://api.jquery.com/jQuery.getScript/">conditional loading</a></p>
+        <p><a href="http://drupal.org/project/cdn">CDN</a>, <a href="http://drupal.org/project/scriptjs">Script.js</a>, <a href="http://drupal.org/project/labjs">Labjs</a></p>
+    </div>
+
+    <div id="resources" class="obvious step last" data-x="9000" data-y="-31850" data-rotate="270" data-scale="6">
+        <p class="huge">Other Resources</p>
+        <p class="left"><a href="http://gzipwtf.com/">Gzip</a></p>
+        <p class="right"><a href="http://incident57.com/codekit/">Codekit</a></p>
+        <p class="left"><a href="http://jpegclub.org/jpegtran/">jpegtran</a></p>
+        <p class="right"><a href="http://tinypng.org/">TinyPNG.org</a></p>
+        <p class="left"><a href="http://drupal.org/project/core_library">Core Library</a></p>
+        <p class="right"><a href="http://drupal.org/project/imageapi_optimize">ImageAPI Optimize</a></p>
+        <p class="left"><a href="http://drupal.org/project/blackwhite">Black n White</a></p>
+        <p class="right"><a href="http://drupal.org/project/adaptive_image">Adaptive Images</a></p>
+        <p class="left"><a href="http://developer.yahoo.com/yslow/">YSlow</a></p>
+        <p class="right"><a href="https://developers.google.com/speed/pagespeed/insights">Google PageSpeed</a></p>
+    </div>
+
+    <div id="your-turn" class="step huge" data-x="9500" data-y="-300" data-scale="6">
+        <p>Your Turn</p>
+    </div>
+
+<!--     <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="5">
+    </div> -->
+
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="js/impress.js"></script>
+<script src="js/speed-script.js"></script>
+</body>
+</html>
+

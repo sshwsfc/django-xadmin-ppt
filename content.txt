@@ -1,0 +1,75 @@
+1. 使用bootstrap作为UI
+
+2. 使用 Class Base View 解决扩展的问题
+
+  Tornado中使用的View方式
+  每次请求会创建一个view对象来处理请求
+  该对象是面向请求的, 所以可以随意使用self
+  例如 self.request
+
+3. 使用元类动态创建 AdminClass
+
+  什么是元类
+    使用元类的实例
+
+  xadmin创建 AdminClass 的流程
+
+    UserAdmin + ModelBaseAdmin + Plugins = FinalAdminClass
+
+4. 内建的插件机制
+
+  借鉴自 Wordpress
+
+  AdminClass的主要方法都可以使用插件来进行扩展
+
+  实现原理:
+
+  动态注入相关插件
+
+  使用装饰器实现方法拦截
+
+  使用示例:
+
+xadmin目前实现的功能:
+
+1. 简单图表功能
+2. 数据详情页面 
+3. 过滤器强化，可以选择时间范围，数字范围，模糊搜索等等。 
+4. 书签 
+5. 导出csv, xml, json, excel
+6. 动态显示列
+7. 关联数据查询
+8. 数据添加向导
+9. 随意布局
+10. dashboard页面
+11. 定义图标
+12. 系统主题功能
+13. 数据版本
+
+xadmin的在线资源
+
+https://github.com/sshwsfc/django-exadmin
+
+http://exadmin.herokuapp.com
+
+开源项目的一些心得:
+
+Github GOOD
+
+`github hook等功能`
+
+heroku.com
+
+`免费的建站方式`
+
+travis-ci.org
+
+`自动化测试助手`
+
+...
+
+目前xadmin的问题
+
+细节优化
+语言问题
+时间和精力

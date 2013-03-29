@@ -1,6 +1,9 @@
+title: Django自动化admin介绍
+author: sshwsfc@gmail.com
+
 %%
-%% Sample based on the blog story by Andi Smith titled 'Impress at Presentations with Impress.js'
-%% -> http://www.andismith.com/blog/2012/01/impress-with-impress
+%% Django-(x)admin
+%% -> http://github.com/sshwsfc/django-exadmin
 
 
 %%%%%
@@ -16,13 +19,10 @@
   text-align: center;
 
   opacity: 0.3;
-  border-radius: 10px;
-  border: 2px solid blue;
 }
 
 .step.active {
   opacity: 1;
-  border: 3px solid red;
 }
 
 code {
@@ -37,10 +37,18 @@ code {
 %%%%%%%%%%%%%%%%%%%
 %% Here we go...
 
-!SLIDE
+!SLIDE scale=3.0
 
-Slide One
+Django-(x)admin
+---------------
 
+``sshwsfc@gmail.com``
+
+some code::
+
+  class User(object):
+    def test():
+      pass
 
 !SLIDE y=600
 
