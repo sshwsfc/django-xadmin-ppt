@@ -15,6 +15,11 @@
 
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="js/default.min.css">
+    <link rel="stylesheet" href="js/tomorrow-night.css">
+    <script src="js/highlight.min.js"></script>
+    <script src="js/python.js"></script>
+    <script src="js/django.js"></script>
 </head>
 <body class="impress-supported">
 <div id="impress">
@@ -37,16 +42,16 @@
 
 <div class="step slide" data-x='2000' data-y='-1500'>
   <h3>MODEL:</h3>
-  <pre>
+  <pre class="python django"><code>
   class User(models.Model):
       name = models.CharField(max_length=64)
       description = models.TextField()
-  </pre>
+  </code></pre>
 </div>
 
 <div class="step slide" data-x='3000' data-y='-1500'>
   <h3>ADMIN:</h3>
-  <pre>
+  <pre class="python django"><code>
   from django.contrib import admin
 
   class UserAdmin(admin.ModelAdmin):
@@ -54,11 +59,13 @@
       list_display_links = ('name',)
 
   admin.site.register(User, UserAdmin)
-  </pre>
+  </code></pre>
 </div>
 
 <div class="step slide" data-x='4000' data-y='-1500'>
-  <img src="" alt="django admin 的演示图片">
+  <h3>Django Admin效果</h3>
+  <img src="imgs/django-admin3.png" alt="django admin 的演示图片">
+  <img src="imgs/django-admin2.jpg" alt="django admin 的演示图片">
 </div>
 
 <div class="step slide" data-x='5000' data-y='-1500'>
@@ -72,12 +79,12 @@
   <h1>谢谢 ;)</h1>
 </div>
 
-<div class="step" data-scale='10'>
+<div class="step hidden" data-scale='10'>
   <p>新事物往往是因为人们对旧事物的某些方面不爽</p>
-  <img src="" alt="例如小三">
+  <img src="imgs/x3.jpg" alt="例如小三" height="300">
 </div>
 
-<div class="step hidden" data-scale='0.7' data-x="2000" data-y='-500'>
+<div class="step hidden" data-scale='0.7' data-x="2000" data-y='-1600'>
   <h1 style="font-size: 300px;">不爽?</h1>
 </div>
 
@@ -87,58 +94,85 @@
 
 <div class="step" data-x="2000" data-y='500' data-scale="0.8">
   <h3>界面像上个世纪的作品</h3>
+  <img class="show" src="imgs/django-admin3.png"/>
 </div>
 <div class="step" data-x="2000" data-y='600' data-scale="0.6">
   <h3>蹩脚的过滤器机制</h3>
 </div>
 <div class="step" data-x="2000" data-y='700' data-scale="0.4">
   <h3>想要扩展总是看上去很美</h3>
+  <pre class="python django"><code>
+  from django.contrib import admin
+
+  class UserAdmin(admin.ModelAdmin):
+      def do_some_field(self, obj):
+          # How to get request      
+
+  admin.site.register(User, UserAdmin)
+  </code></pre>
 </div>
 <div class="step" data-x="2000" data-y='800' data-scale="0.2">
   <h3>导致几乎没有 django admin 插件这个概念</h3>
+  <pre class="python django"><code>
+  from django.contrib import admin
+
+  class UserAdmin(NewListAdmin, CoolAdmin, XXXadmin, admin.ModelAdmin):
+      """What the Fxxk!!"""
+  </code></pre>
 </div>
 
 <div class="step" data-scale='8'>
   <h1>xadmin?</h1>
   <h3>不得已而为之</h3>
+  <img class="show" src="imgs/crazy.gif"/>
 </div>
 
-<div class="step">
+<div class="step" data-x='3000' data-y='3000'>
   <h3>xadmin的核心特性</h3>
 </div>
 
-<div class="step hidden">
+<div class="step" data-x='3500' data-y='3500' data-scale="2" data-rotate="90">
   <h4><b>1</b> 使用bootstrap作为UI</h4>
 </div>
 
-<div class="step hidden">
+<div class="step" data-x='4000' data-y='4000' data-scale="4" data-rotate="180">
   <h4><b>2</b> 使用 Class Base View 解决扩展的问题</h4>
 </div>
 
-<div class="step hidden">
+<div class="step" data-x='4000' data-y='4000' data-z="-100" data-rotate="180">
   <p>Tornado中使用的View方式</p>
   <p>每次请求会创建一个view对象来处理请求</p>
   <p>该对象是面向请求的, 所以可以随意使用self</p>
-  <p>例如 self.request</p>
+  <pre class="python django"><code>
+  class UserAdmin(object):
+      def do_some_field(self, obj):
+          # Easy get request
+          user = self.request.user
+          # Yes
+
+  xadmin.site.register(User, UserAdmin)
+  </code></pre>
 </div>
 
-<div class="step hidden">
+<div class="step" data-x='4500' data-y='4500' data-scale="6" data-rotate="270">
   <h4><b>3</b> 使用<span>元类</span>动态创建 AdminClass</h4>
 </div>
 
-<div class="step hidden">
-  <p>创建类的类</p>
+<div class="step" data-x='4500' data-y='4500' data-scale="1.2" data-rotate="270">
+  <b>创建类的类</b>
   <p>xadmin创建 AdminClass 的流程</p>
-  <pre>
-    # UserAdmin + ModelBaseAdmin + Plugins = FinalAdminClass
-  </pre>
+  <pre class="python django"><code>
+UserAdmin + ModelBaseAdmin + Plugins = FinalAdminClass
+  </code></pre>
 </div>
-
-<div class="step hidden">
+<div class="step" data-x='5000' data-y='5000' data-scale="8" data-rotate="360">
   <h4><b>4</b> 内建的插件机制</h4>
   <p>借鉴自 Wordpress</p>
   <p>使用装饰器实现方法拦截</p>
-  <pre>
+</div>
+
+<div class="step" data-x='5000' data-y='5000' data-scale="2" data-rotate="360">
+  <pre style="font-size: 20px;" class="python django"><code>
 from django.template import loader
 
 from exadmin.sites import site
@@ -157,149 +191,153 @@ class RefreshPlugin(BaseAdminPlugin):
         return media
 
 site.register_plugin(RefreshPlugin, ListAdminView)
-  </pre>
+  </code></pre>
 </div>
 
-<div class="step hidden">
-  <h3>xadmin目前实现的功能</h3>
+<div class="step" data-x='-1000' data-y='-1000' data-rotate="0">
+  <h2>xadmin目前实现的功能</h2>
 </div>
 
-<div class="step hidden">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-45" data-rotate-y="45">
   <h4><b>1</b> 简单图表功能</h4>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/chart.png" alt="">
 </div>
 
-<div class="step hidden">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-90" data-rotate-y="90">
   <h4><b>2</b> 数据详情页面</h4>
   <p>为什么django-admin没有view页面及权限?</p>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/details.png" alt="">
 </div>
 
-<div class="step hidden">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-135" data-rotate-y="135">
   <h4><b>3</b> 过滤器强化</h4>
   <p>不仅仅是一个列表选择器而已</p>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/filter.png" alt="">
 </div>
 
-<div class="step hidden">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-180" data-rotate-y="180">
   <h4><b>4</b> 书签</h4>
   <p>实现定制化的列表</p>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/bookmark.png" alt="">
 </div>
 
-<div class="step hidden">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-225" data-rotate-y="225">
   <h4><b>5</b> 导出数据</h4>
   <p>csv, xml, json, excel一个都不能少</p>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/export.png" alt="">
 </div>
 
-<div class="step hidden">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-270" data-rotate-y="270">
   <h4><b>6</b> 动态显示列</h4>
-  <img src="" alt="">
 </div>
 
-<div class="step hidden">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-315" data-rotate-y="315">
   <h4><b>7</b> 关联数据查询</h4>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/relate.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="0" data-rotate-y="0">
   <h4><b>8</b> 数据添加向导</h4>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/wizard.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-45" data-rotate-y="45">
   <h4><b>9</b> 随意布局</h4>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/form.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-90" data-rotate-y="90">
   <h4><b>10</b> dashboard页面</h4>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/dashboard.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-135" data-rotate-y="135">
   <h4><b>11</b> 定义图标</h4>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/icon.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-180" data-rotate-y="180">
   <h4><b>12</b> 系统主题功能</h4>
   <p>Admin系统也要主题?</p>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/theme.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step feature" data-x='-1000' data-y='-1000' data-rotate-x="-225" data-rotate-y="225">
   <h4><b>13</b> 数据版本</h4>
   <p>关键数据跑不了</p>
-  <img src="" alt="">
+  <img class="show" src="imgs/fs/version.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step hidden">
   <h3>xadmin的在线资源</h3>
   <p>https://github.com/sshwsfc/django-exadmin</p>
   <p>http://exadmin.herokuapp.com</p>
 </div>
 
-<div class="step hidden slide">
+<div class="step hidden">
   <h3>开源项目的心得</h3>
 </div>
 
-<div class="step hidden slide">
-  <h4>Github is GOOD</h4>
-  <img src="" alt="">
+<div id="github" class="step hidden">
+  <h4>Github</h4>
+  <img src="imgs/github.png" alt="" height="400">
 </div>
 
-<div class="step hidden slide">
+<div class="step hidden">
   <h4>heroku.com</h4>
   <p>免费的建站方式</p>
-  <img src="" alt="">
+  <img src="imgs/heroku.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step hidden">
   <h4>travis-ci.org</h4>
   <p>自动化测试助手</p>
-  <img src="" alt="">
+  <img src="imgs/ti.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step hidden">
   <h4>c9.io</h4>
   <p>让你随时随地coding</p>
-  <img src="" alt="">
+  <img src="imgs/logo_cloud9.png" alt="">
 </div>
 
-<div class="step hidden slide">
+<div class="step hidden">
   <h3>目前xadmin的问题</h3>
 </div>
 
-<div class="step hidden slide">
+<div class="step" data-y='-500' data-rotate-x="-180">
   <h4>细节优化</h4>
 </div>
 
-<div class="step hidden slide">
+<div class="step" data-y='-1000' data-rotate-x="0">
   <h4>语言问题</h4>
 </div>
 
-<div class="step hidden slide">
+<div class="step" data-y='-1500' data-rotate-x="180">
   <h4>时间和精力</h4>
 </div>
 
-<div class="step hidden slide">
+<div class="step hidden">
   <h3>我的工作?</h3>
   <p>www.wiyun.com</p>
 </div>
 
-<div class="step hidden slide">
+<div class="step hidden">
   <h1>谢谢!</h1>
 </div>
 
-<div id="overview" class="step hidden slide">
+<div id="overview" class="step hidden slide" data-scale="15">
 </div>
 
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/impress.js"></script>
 <script src="js/speed-script.js"></script>
+<script>
+$(document).ready(function() {
+  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+});    
+</script>
 </body>
 </html>
 

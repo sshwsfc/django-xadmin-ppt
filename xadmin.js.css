@@ -1,3 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Nova+Round);
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('font/League_Gothic-webfont.eot');
+    src: url('font/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/League_Gothic-webfont.woff') format('woff'),
+         url('font/League_Gothic-webfont.ttf') format('truetype'),
+         url('font/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'yijian';
+    src: url('font/yii.eot');
+    src: url('font/yii.eot?#iefix') format('embedded-opentype'),
+         url('font/yii.woff') format('woff'),
+         url('font/yii.ttf') format('truetype'),
+         url('font/yii.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url(http://fonts.googleapis.com/css?family=Nova+Round);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -42,7 +64,7 @@ table {
     border-spacing: 0;
 }
 body {
-    font-family: sans-serif;
+    font-family: "LeagueGothicRegular", "yijian", sans-serif;
     min-height: 740px;
 
     background: rgb(215, 215, 215);
@@ -113,7 +135,7 @@ a:focus {
     -o-box-sizing:      border-box;
     box-sizing:         border-box;
 
-    font-family: sans-serif;
+    font-family: "LeagueGothicRegular", "yijian", sans-serif;
     font-size: 70px;
     line-height: 1.5;
 }
@@ -122,14 +144,15 @@ a:focus {
     margin: 0;
     opacity: 0.05;
 
-    -webkit-transition: opacity 1s;
-    -moz-transition:    opacity 1s;
-    -ms-transition:     opacity 1s;
-    -o-transition:      opacity 1s;
-    transition:         opacity 1s;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition:    opacity 0.6s;
+    -ms-transition:     opacity 0.6s;
+    -o-transition:      opacity 0.6s;
+    transition:         opacity 0.6s;
 }
 
 .impress-enabled .step.active { opacity: 1 }
+.impress-enabled .step.active img.show{ opacity: 1 }
 
 /* Speed General */
 .slide {
@@ -147,11 +170,14 @@ a:focus {
     color: rgb(102, 102, 102);
     text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
 
-    font-family: 'LeagueGothicRegular', sans-serif;
+    font-family: 'LeagueGothicRegular',"yijian", sans-serif;
     letter-spacing: -1px;
 }
 .hidden {
     opacity:0;
+}
+.step.feature {
+    opacity:0.02;
 }
 .left {
     float: left;
@@ -199,16 +225,35 @@ p {
     line-height: 50px;
 }
 
-pre {
-    font-family: "Courier New","Consolas","Bitstream Vera Sans Mono",Courier,monospace!important;
+pre code{
+    font-family: 'Nova Round', "Courier New","Consolas","Bitstream Vera Sans Mono",Courier,monospace!important;
     font-size: 28px;
     line-height: 35px;
+    background: #FFF;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 }
 
-img {
-    background: #ccc;
+h4 b {
+    background: #333;
+    color: #FFF;
+    padding: 10px 40px;
 }
 
+img.show {
+    float: right;
+    border-radius: 80px;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, .3);
+    opacity:0;
+}
+
+.step.feature img.show {
+}
+
+.step.pass img{
+    display: none;
+}
 #overview { display: none }
 
 .impress-on-overview .step {
